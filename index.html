@@ -3,4 +3,18 @@
 <head><title>BrowserHEX</title> <script>
     </script></head>
 <body> welcome to browserHEX <button onclick="location.href='https://maybe-asdf.github.io/browserhex/crash'">RAM FILL CRASH</button></body>
+    <textarea id="jsInput" rows="10" cols="50" placeholder="JS"></textarea><br><br>
+    <button id="executeButton">Run Code</button>
+    <script>
+        document.getElementById("executeButton").addEventListener("click", () => {
+            const code = document.getElementById("jsInput").value;
+            const outputElement = document.getElementById("output");
+            try {
+                const result = eval(code);
+                outputElement.textContent = `Output: ${result}`;
+            } catch (error) {
+                outputElement.textContent = `Error: ${error.message}`;
+            }
+        });
+    </script>
 </html>
